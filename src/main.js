@@ -9,7 +9,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/bass.css'
 
 import './permission'
-import '../mock'
 import serviceManger from '@/service/index'
 Vue.prototype.$serviceManger = serviceManger
 

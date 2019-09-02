@@ -8,14 +8,13 @@
           <img :src="website.logo" width="40" height="40">
         </template>
         <template v-else>
-          {{website.logo}}
+          {{website.title}}
         </template>
       </span>
     </transition>
     <transition-group name="fade">
       <template v-if="!isCollapse">
-        <span class="logo-title is-bold" key="1">{{website.title}}</span>
-        <span class="logo-subtitle" key="2">{{website.author}}</span>
+        <span class="logo-title is-bold" key="1">{{website.logo}}</span>
       </template>
     </transition-group>
   </div>
@@ -42,5 +41,6 @@ export default {
   line-height: 60px;
   background: #51771f;
   color: #fff;
+  text-align: center;
 }
 </style>

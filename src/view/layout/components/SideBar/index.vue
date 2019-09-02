@@ -1,22 +1,20 @@
 <template>
-  <div>
+  <el-scrollbar class='scrollbar-wrapper'>
     <logo :isCollapse='isCollapse'></logo>
-    <el-scrollbar class='scrollbar-wrapper'>
-      <el-menu 
-        mode='vertical'
-        :show-timeout='200'
-        :collapse='!isCollapse'
-        :default-active="$route.path"
-        active-text-color='#42b983'
-        background-color='#6959CD'
-        router
-        :unique-opened="true"
-        :collapse-transition="false"
-      >
-        <sidebar-item :routesLink='getrouters'></sidebar-item>
-      </el-menu>
-    </el-scrollbar>
-  </div>
+    <el-menu 
+      mode='vertical'
+      :show-timeout='200'
+      :collapse='!isCollapse'
+      :default-active="$route.path"
+      active-text-color='#42b983'
+      background-color='#6959CD'
+      router
+      :unique-opened="true"
+      :collapse-transition="false"
+    >
+      <sidebar-item :routesLink='getrouters'></sidebar-item>
+    </el-menu>
+  </el-scrollbar>
 </template>
 <script>
 import {mapGetters} from 'vuex'

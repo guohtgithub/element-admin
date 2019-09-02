@@ -41,10 +41,6 @@ const routesLink = {
       state.routers = commonRouterMap.concat(routers)
     }
   },
-  // getters:{
-  //   getaddRouters:state => state.addRouters,
-  //   getrouters:state => state.routers
-  // },
   actions:{
     GenerateRoutes({commit},data){
       return new Promise(resolve => {

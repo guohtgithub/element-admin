@@ -9,5 +9,13 @@ module.exports = {
   chainWebpack:config => {
     config.resolve.alias.set('@',resolve('src'))
   },
-  publicPath:process.env.NODE_ENV === 'production'?'/admin':'/'
+  publicPath:process.env.NODE_ENV === 'production'?'/admin':'/',
+  productionSourceMap: false,
+  devServer:{
+    port:9090,
+    host:'localhost',
+    https:false,
+    open:true,
+    proxy:'http://localhost:3030'
+  }
 }

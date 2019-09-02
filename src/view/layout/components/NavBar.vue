@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar" >
-    <div class="left">
+    <div class="left" @click="toggleSideBar">
       <div class="close">
         X
       </div>
@@ -25,6 +25,7 @@
   </div>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data(){
     return{
@@ -38,7 +39,13 @@ export default {
     async logout(){
       await this.$store.dispatch('LogOut')
       this.$router.push('/login')
+    },
+    toggleSideBar(){
+      this.$store.dispatch('ToggleSideBar')
     }
+  },
+  computed:{
+    ...mapGetters(['sidebar'])
   }
 }
 </script>
@@ -59,6 +66,7 @@ export default {
       float: right;
       ul{
         display: flex;
+        padding-right: 20px;
         li{
           padding: 0 10px;
           height: 30px;

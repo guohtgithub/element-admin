@@ -32,12 +32,7 @@ export const commonRouterMap = [
     path:'/404',
     component:import('@/view/errorPage/404'),
     hidden:true
-  },
-  // {
-  //   path:"*",
-  //   redirect:'/404',
-  //   hidden:true
-  // }
+  }
 ]
 
 // 异步挂载的路由
@@ -51,14 +46,14 @@ export const asyncRouterMap = [
     meta:{
       title:'Info',
       icon:'el-icon-tickets',
-      rolr:['0','1','2']
+      role:['1','2','3']
     },
     children:[
       {
         path:'table',
         name:'Table',
         component:() => import('@/view/info/table'),
-        meta:{title:'Table',role:['0']}
+        meta:{title:'Table',role:['1']}
       }
     ]
   },

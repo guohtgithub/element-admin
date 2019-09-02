@@ -57,8 +57,8 @@
       }
       return{
         loginForm:{
-          username:'admin',
-          password:'admin'
+          username:'1@example.com',
+          password:'123456'
         },
         checked:true,
         passwordType:'password',
@@ -89,7 +89,6 @@
               .then(data => {
                 this.loading = false
                 if(data){
-                  console.log(data,'login')
                   this.$router.push('/')
                 }
               })

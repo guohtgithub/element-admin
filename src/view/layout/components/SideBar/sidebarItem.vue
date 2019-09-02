@@ -38,14 +38,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .sidebar{
-    div{
-      // color: #fff000;
-      p{
-        height: 100%;
-        color: #f0f0f0;
-        z-index: 10000;
-      }
-    }
-  }
+  // .sidebar{
+  //   background: red;
+  //   div{
+  //     // color: #fff000;
+  //     p{
+  //       height: 100%;
+  //       color: #f0f0f0;
+  //       z-index: 10000;
+  //     }
+  //   }
+  // }
 </style>

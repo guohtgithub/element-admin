@@ -29,8 +29,8 @@ const user = {
       return new Promise((resolve,reject) => {
         serviceManger.login(userInfo).then(response => {
           if(response){
-            cookie.set('app',response.result)
-            commit('SetToken',response.result)
+            cookie.set('app',response.data.token)
+            commit('SetToken',response.data.token)
             resolve(response)
           }else{
             reject(response)
@@ -38,16 +38,14 @@ const user = {
         })
       })
     },
-    GetInfo({commit,state},param){
-      console.log(param,'param---')
+    GetInfo({commit,state}){
       return new Promise((resolve,reject) => {
-        serviceManger.getInfo(state.token,param).then(response => {
-          console.log(response,'response---')
+        serviceManger.getInfo(state.token).then(response => {
           if(response){
-            const data = response.result
-            commit('SetRoles',data.roles)
+            const data = response.data.data
+            commit('SetRoles',data.level)
             commit('SetName',data.name)
-            commit('SetAvatar',data.avatar)
+            commit('SetAvatar',data.level)
             resolve(response)
           }else{
             reject(response)

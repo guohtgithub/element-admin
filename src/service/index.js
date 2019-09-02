@@ -6,20 +6,19 @@ class serceManger {
     return request({
       data:param,
       method:'post',
-      url:'/user/login'
+      url:'/api/login'
     })
   }
 
   // 获取用户信息
-  getInfo(token=null,param=null){
-    console.log(token,param,'-----token')
+  getInfo(token=null){
     return request({
       headers:{
         token
       },
-      data:param,
-      method:'get',
-      url:'/user/getInfo'
+      data:null,
+      method:'post',
+      url:'/api/operate/getInfo'
     })
   }
 

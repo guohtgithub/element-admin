@@ -28,6 +28,7 @@ export default {
     classObj(){
       return{
         hideSidebar:!this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
         mobile:this.device === 'mobile'
       }
     }
@@ -39,25 +40,6 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.layout{
-  position: relative;
-  height: 100%;
-  width: 100%;
-  min-width: 1200px;
-  .sidebar-container{
-    transition: width .3s;
-    width: 210px;
-    height: 100%;
-    position: fixed;
-    top:0;
-    bottom: 0;
-    left: 0;
-    z-index: 1001;
-    background: #6959cd;
-  }
-  .main-container{
-    margin-left: 210px;
-  }
-}
+<style lang="scss">
+@import "@/style/index.scss";
 </style>

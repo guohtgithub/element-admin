@@ -29,7 +29,7 @@ export function request(options){
         if(res.code !== 200){ // code 逻辑处理
           Message({
             type:'error',
-            message:res.message,
+            message:response.message,
             duration:5000
           })
         }else{

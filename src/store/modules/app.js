@@ -9,11 +9,7 @@ const app = {
   },
   mutations:{
     Toggle_Sidebar:state =>{
-      if(state.sidebar.opened){
-        state.sidebar.opened = false
-      }else{
-        state.sidebar.opened = true
-      }
+      state.sidebar.opened = !state.sidebar.opened
     },
     Toggle_Device:(state,device) => {
       state.device = device
