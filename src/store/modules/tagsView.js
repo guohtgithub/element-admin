@@ -1,7 +1,8 @@
 const tagsView = {
   state:{
-    visitedViews:[],
-    cachedViews:[]
+    visitedViews:[{name:'Home',path:'/home',title:'统计'}],
+    cachedViews:['Home'],
+    title:''
   },
   mutations:{
     AddVisitedViews(state,view){
@@ -48,6 +49,9 @@ const tagsView = {
     DelAllView(state){
       state.visitedViews = []
       state.cachedViews = []
+    },
+    Set_Title:(state,title) => {
+      state.title = title
     }
   },
   actions:{
@@ -71,6 +75,9 @@ const tagsView = {
         commit('DelOthersViews')
         resolve([...state.visitedViews])
       })
+    },
+    setTitle:({commit},title)=>{
+      commit('Set_Title',title)
     }
   }
 }

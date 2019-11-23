@@ -19,71 +19,71 @@ export const commonRouterMap = [
     children:[
       {
         path:'home',
-        component:() => import('@/view/Home')
+        component:() => import('@/view/page/Home')
       }
     ]
-  },
-  {
+  },{
     path:'/home',
     component:Layout,
-    meta:{title:'Home',icon:'el-icon-menu'}
-  },
-  {
+    meta:{title:'统计',icon:'el-icon-menu'}
+  },{
     path:'/404',
     component:import('@/view/errorPage/404'),
     hidden:true
   }
+
 ]
 
 // 异步挂载的路由
 // 动态需要根据权限加载的路由表
 export const asyncRouterMap = [
   {
-    path:'/info',
+    path:'/exchange',
     component:Layout,
-    redirect:'/info/table',
-    name:'Info',
-    meta:{
-      title:'Info',
-      icon:'el-icon-tickets',
-      role:['1','2','3']
-    },
+    children:[{
+      path:'index',
+      component:() => import('@/view/page/exchange'),
+      name:'Exchange',
+      meta:{title:'交易所管理',icon:'el-icon-pie-chart'},
+    }]
+  },{
+    path:'/robot',
+    component:Layout,
+    children:[{
+      path:'index',
+      component: () => import('@/view/page/robot'),
+      meta:{title:'机器人管理',icon:'el-icon-coordinate'},
+      name:'robot',
+    }]
+  },{
+    path:'/buy',
+    component:Layout,
     children:[
       {
-        path:'table',
-        name:'Table',
-        component:() => import('@/view/info/table'),
-        meta:{title:'Table',role:['1']}
-      }
+        path:'index',
+        component:()=>import('@/view/page/buy'),
+        name:'Buy',
+        meta:{title:'购买机器人',icon:'el-icon-news'},
+      },
     ]
-  },
-  {
-    path:'/business',
+  },{
+    path:'/modifyPWD',
     component:Layout,
-    name:'Business',
-    meta:{title:'业务管理',icon:'el-icon-news'},
-    children:[
-      {
-        path:'product',
-        component:()=>import('@/view/business/product/index'),
-        name:'Product',
-        meta:{title:'产品管理'},
-        children:[
-          {
-            path:'addProduct',
-            component:()=>import('@/view/business/product/addProduct'),
-            name:'AddProduct',
-            meta:{title:'添加产品'}
-          },
-          {
-            path:'proList',
-            component:()=>import('@/view/business/product/productList'),
-            name:'productList',
-            meta:{title:'产品列表'}
-          },
-        ]
-      }
-    ]
+    hidden:true,
+    children:[{
+      path:'index',
+      component:() => import('@/view/page/modifyPwd'),
+      meta:{title:'修改密码'}
+    }]
+  },{
+    path:'/invest',
+    component:Layout,
+    hidden:true,
+    children:[{
+      path:'index',
+      component:() => import('@/view/page/invest'),
+      meta:{title:'充值中心'}
+    }]
   }
 ]
 

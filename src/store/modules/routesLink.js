@@ -2,7 +2,7 @@ import {asyncRouterMap,commonRouterMap} from '@/router'
 
 function hasPermission(roles,route){
   if(route.meta && route.meta.role){
-    return route.meta.role.includes(roles)
+    return roles.some(role => route.meta.roles.includes(role))
   }else{
     return true
   }
@@ -20,9 +20,6 @@ export function filterAsyncRoutes(routes,roles){
     if(hasPermission(roles,tmp)){
       if(tmp.children){
         tmp.children = filterAsyncRoutes(tmp.children,roles)
-      }
-      if(tmp.hidden && typeof tmp.hidden !== 'boolean'){
-        tmp.hidden = tmp.hidden.includes(roles)?true:false
       }
       res.push(tmp)
     }

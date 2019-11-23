@@ -10,7 +10,7 @@
     </div>
     <div class="right-login pt300">
       <div class="login-main">
-        <h4 class="login-title">登录</h4>
+        <h4 class="login-title">市值管理后台系统</h4>
         <el-form :rules="loginRules" 
           ref="loginForm" :model='loginForm'>
           <el-form-item prop='username'>
@@ -34,7 +34,6 @@
               <i class="icon-mima" slot="prefix"></i>
             </el-input>
           </el-form-item>
-          <el-checkbox v-model="checked" class="left">记住账号</el-checkbox>
           <el-form-item>
             <el-button class="login-submit" type='primary' :loading='loading'
               size='small' @click.native.prevent="handleLogin">登录</el-button>
@@ -57,18 +56,16 @@
       }
       return{
         loginForm:{
-          username:'1@example.com',
-          password:'123456'
+          username:'',
+          password:''
         },
-        checked:true,
         passwordType:'password',
         loginRules:{
           username:[
             {required:true,trigger:'blur',validator:validateUsername}
           ],
           password:[
-            {required:true,message:'请输入密码',trigger:'blur'},
-            {min:5,message:'密码长度最少为5位',trigger:'blur'}
+            {required:true,message:'请输入密码',trigger:'blur'}
           ]
         },
         loading:false

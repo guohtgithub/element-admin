@@ -5,18 +5,16 @@
         key="0" :class="{'is-img':type,'is-text':type}"
       >
         <template v-if="type">
-          <img :src="website.logo" width="40" height="40">
+          <img :src="website.logo" width="40" height="40" style="padding-top:10px;" />
         </template>
         <template v-else>
           {{website.title}}
         </template>
       </span>
-    </transition>
-    <transition-group name="fade">
       <template v-if="!isCollapse">
-        <span class="logo-title is-bold" key="1">{{website.logo}}</span>
+        <img :src="website.logo" width="40" height="40"  style="padding-top:10px;" />
       </template>
-    </transition-group>
+    </transition>
   </div>
 </template>
 <script>
@@ -30,7 +28,7 @@ export default {
   computed:{
     ...mapGetters(['website']),
     type(){
-      return this.website.logo.indexOf('static') != -1
+      return this.website.logo.indexOf('1static') != -1
     }
   }
 }
@@ -39,7 +37,7 @@ export default {
 .logo{
   height: 60px;
   line-height: 60px;
-  background: #51771f;
+  background: #2b2f3a;
   color: #fff;
   text-align: center;
 }

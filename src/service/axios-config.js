@@ -6,7 +6,8 @@ export function request(options){
   return new Promise((resolve,reject) => {
     // 创建axios实例
     const service = axios.create({
-      timeout:5000
+      timeout:5000,
+      withCredentials:true
     })
 
     // 添加请求拦截器
@@ -25,15 +26,16 @@ export function request(options){
     service.interceptors.response.use(
       function(response){
         const res = response.data
-        console.log('添加响应拦截器',response)
-        if(res.code !== 200){ // code 逻辑处理
+        console.log('添加响应拦截器',res)
+        if(res.code !== 0){ // code 逻辑处理
           Message({
             type:'error',
-            message:response.message,
+            message:res.msg,
             duration:5000
           })
+          return res
         }else{
-          return response.data
+          return res
         }
       },
       function(error){

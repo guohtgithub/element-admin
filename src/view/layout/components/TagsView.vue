@@ -10,7 +10,7 @@
         tag='li'
       >
         {{tag.title}}
-        <i class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></i>
+        <i v-if="tag.path !='/home'" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></i>
       </router-link>
     </ul>
   </div>
@@ -33,13 +33,16 @@ export default {
   },
   methods:{
     generateRoute(){
-      if(this.$route.name) return this.$route
+      if(this.$route) return this.$route
 
       return false
     },
     addViewTags(){
       const route = this.generateRoute()
       if(!route) return false
+      
+      let title = route.meta.title || '统计'
+      this.$store.dispatch('setTitle',title)
       this.$store.dispatch('addVisitedViews',route)
     },
     isActive(route){
@@ -64,16 +67,17 @@ export default {
 <style lang="scss" scoped>
 .tags-view{
   height: 36px;
-  background: #ececec;
+  background: #fff;
   line-height: 36px;
   color: #fff;
   text-align: left;
+  box-shadow: 0 4px 4px rgba(0,21,41,0.08);
   ul{
     display: flex;
     li{
-      height: 30px;
-      line-height: 30px;
-      margin-top: 3px;
+      height: 25px;
+      line-height: 25px;
+      margin-top: 6px;
       margin-left: 10px;
       padding: 0 10px;
       background: #f0f0f0;

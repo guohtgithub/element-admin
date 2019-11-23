@@ -6,25 +6,20 @@ console.log(store)
 // main.js
 router.beforeEach((to, from, next) => {
   console.log("路由拦截", to.path);
-  console.log("store.getters.gettoken");
   if (store.getters.gettoken) {
     // 判断是否有token
-    console.log("有token");
-
     if (to.path === "/login") {
       console.log("有token , 将要去登录页,转到首页");
-
       next({ path: "/" });
     } else {
       console.log("有token , 非 去登录页,");
       if (!store.getters.getroles) {
         // 判断当前用户是否已拉取完user_info信息
-        console.log("拉取用户信息");
         store
           .dispatch("GetInfo")
           .then(res => {
             // 拉取info
-            const roles = res.data.level;
+            const roles = null;
             //根据角色 生成响应的路由
             store.dispatch("GenerateRoutes", { roles }).then(() => {
               //生成可访问的路由表

@@ -8,5 +8,6 @@ const getters = {
   getavatar:state => state.user.avatar,
   getname:state => state.user.name,
   visitedViews:state => state.tagsView.visitedViews,
+  title:state => state.tagsView.title,
 }
 export default getters

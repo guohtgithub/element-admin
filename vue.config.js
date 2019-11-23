@@ -13,9 +13,14 @@ module.exports = {
   productionSourceMap: false,
   devServer:{
     port:9090,
-    host:'localhost',
+    host:'0.0.0.0',
     https:false,
     open:true,
-    proxy:'http://localhost:3030'
+    proxy:{
+      '/admin':{
+        target:'http://192.168.0.12:8000',
+        ws:false
+      }
+    }
   }
 }

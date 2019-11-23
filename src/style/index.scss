@@ -13,10 +13,21 @@
     bottom: 0;
     left: 0;
     z-index: 1001;
-    background: #6959cd;
+    background: #304156;
   }
   .main-container{
     margin-left: 210px;
+    .fixed-posi{
+      position: fixed;
+      top: 0;
+      left: 210px;
+      right: 0;
+      z-index:999;
+    }
+    .main-content{
+      margin-top: 100px;
+      position: relative;
+    }
   }
   .hideSidebar {
     .sidebar-container {

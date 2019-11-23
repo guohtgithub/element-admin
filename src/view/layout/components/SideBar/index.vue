@@ -6,9 +6,10 @@
       :show-timeout='200'
       :collapse='!isCollapse'
       :default-active="$route.path"
-      active-text-color='#42b983'
-      background-color='#6959CD'
+      active-text-color='#409eff'
+      background-color='#304156'
       router
+      text-color="#f0f0f0"
       :unique-opened="true"
       :collapse-transition="false"
     >
@@ -39,6 +40,7 @@ export default {
   text-align: left;
   .el-menu{
     border-right: none;
+    color: red;
   }
 }
 </style>
